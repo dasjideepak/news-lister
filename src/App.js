@@ -5,7 +5,6 @@ import "./App.css";
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
-
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState(null);
 
@@ -24,11 +23,11 @@ function App() {
       );
     }
 
-    setData({ currentPage: 1, results: [] });
+    setData({});
   }, [searchText, page]);
 
   const handlePageClick = (event) => {
-    setPage(event.selected + 1);
+    setPage(event.selected);
   };
 
   return (
@@ -54,14 +53,14 @@ function App() {
             <div>
               <span>Showing {data?.pageSize} Items</span>
               <h3>Total {data?.total} Items</h3>
+              <h3>Total {data?.pages} Pages</h3>
             </div>
           </div>
-
           {data?.results?.map((item) => {
             return (
               <div key={item?.id} className="card">
                 <a href={item?.webUrl}>
-                  <div className="flex-center">
+                  <div className="flex-center img-container">
                     <img
                       width="200px"
                       src={
@@ -91,17 +90,26 @@ function App() {
           })}
           <ReactPaginate
             breakLabel="..."
-            nextLabel="next >"
+            nextLabel="Next"
             onPageChange={handlePageClick}
-            pageRangeDisplayed={10}
+            pageRangeDisplayed={20}
             pageCount={data?.pages}
-            previousLabel="< prev"
+            previousLabel="Prev"
             renderOnZeroPageCount={null}
             className="flex-center pagination"
             activeClassName="active-page"
+            previousClassName="page-item"
+            nextClassName="page-item"
+            forcePage={page}
           />
         </div>
-      ) : null}
+      ) : (
+        searchText && (
+          <span className="no-data">
+            Data not found for the term - {searchText}
+          </span>
+        )
+      )}
     </div>
   );
 }

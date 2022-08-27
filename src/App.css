@@ -62,9 +62,11 @@ table {
 .card {
   display: flex;
   width: 780px;
-  border: 1px solid black;
-  margin: 12px 0;
-
+  margin: 12px 0; 
+  border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 17px 17px 33px #d9d9d9,
+      -17px -17px 33px #ffffff;
 }
 
 .search label {
@@ -79,7 +81,7 @@ table {
 
 .pagination {
   flex-direction: row;
-  width: 600px;
+  width: 700px;
 }
 
 .pagination li{
@@ -109,6 +111,11 @@ h2 {
   margin: 10px 0;
 }
 
+.img-container {
+  padding: 4px;
+  border-radius: 4px;
+}
+
 .tags {
   background-color: rgba(164, 164, 164, 0.418);
   padding: 4px;
@@ -118,7 +125,6 @@ h2 {
   cursor: pointer;
   margin-top: 4px;
   margin-bottom: 4px;
-  word-break:keep-all;
 }
 
 .tags:hover {
@@ -129,4 +135,15 @@ h2 {
   background-color: rgb(114, 110, 110);
   padding: 4px;
   border-radius: 50%;
+}
+
+.no-data {
+  padding: 44px 0;
+}
+
+.page-item {
+  background-color: #fff;
+  border: 1px solid rgb(42, 164, 185);
+  padding: 4px 8px;
+  color: rgb(27, 86, 223);
 }

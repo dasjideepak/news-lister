@@ -61,9 +61,10 @@ table {
 
 .card {
   display: flex;
-  width: 600px;
+  width: 780px;
   border: 1px solid black;
   margin: 12px 0;
+
 }
 
 .search label {
@@ -102,4 +103,30 @@ h2 {
 
 .justify-between {
   justify-content: space-between;
+}
+
+.tag-container {
+  margin: 10px 0;
+}
+
+.tags {
+  background-color: rgba(164, 164, 164, 0.418);
+  padding: 4px;
+  border: 1px solid gray;
+  margin-right: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  word-break:keep-all;
+}
+
+.tags:hover {
+    background-color: rgba(183, 182, 182, 0.826);
+}
+
+.active-page {
+  background-color: rgb(114, 110, 110);
+  padding: 4px;
+  border-radius: 50%;
 }

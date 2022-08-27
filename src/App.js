@@ -63,18 +63,28 @@ function App() {
                 <a href={item?.webUrl}>
                   <div className="flex-center">
                     <img
-                      width={100}
-                      height={100}
+                      width="200px"
                       src={
-                        item?.thumbnail ||
+                        item?.fields?.thumbnail ||
                         "https://t4.ftcdn.net/jpg/02/07/87/79/360_F_207877921_BtG6ZKAVvtLyc5GWpBNEIlIxsffTtWkv.jpg"
                       }
-                      alt={item?.pillarName}
+                      alt={item?.headline}
                     />
                   </div>
                 </a>
                 <div className="title-and-keywords">
                   <a href={item?.webUrl}>{item?.webTitle}</a>
+                  <div className="tag-container">
+                    {item?.tags?.map((tag) => (
+                      <button
+                        key={tag?.id}
+                        className="tags"
+                        onClick={(e) => setSearchText(tag?.sectionName)}
+                      >
+                        {tag?.sectionName}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             );
@@ -88,6 +98,7 @@ function App() {
             previousLabel="< prev"
             renderOnZeroPageCount={null}
             className="flex-center pagination"
+            activeClassName="active-page"
           />
         </div>
       ) : null}

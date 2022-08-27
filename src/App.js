@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     if (searchText) {
-      const URL = `http://content.guardianapis.com/search?api-key=test&q=${searchText}&show-fields=thumbnail,headline&show-tags=keyword&page=${page}&page-size=10`;
+      const URL = `https://content.guardianapis.com/search?api-key=test&q=${searchText}&show-fields=thumbnail,headline&show-tags=keyword&page=${page}&page-size=10`;
       setIsLoading(true);
       fetch(URL).then((res) =>
         res
